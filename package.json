@@ -1,7 +1,7 @@
 {
-  "name": "i18n-pseudo",
+  "name": "i18next-pseudo",
   "version": "1.0.0",
-  "description": "Describe i18n-pseudo here",
+  "description": "Describe i18next-pseudo here",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -16,8 +16,7 @@
     "test:coverage": "nwb test --coverage",
     "test:watch": "nwb test --server"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "nwb": "0.21.x"
   },
