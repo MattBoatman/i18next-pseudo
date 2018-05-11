@@ -50,3 +50,20 @@ All configurations are optional.
 | `letterMultiplier` | `2` | `number` | The amount of times you would like your repeatedLetter array to be multiplied |
 | `letters` | `{  a: 'α',  b: 'ḅ',  c: 'ͼ',  d: 'ḍ',  e: 'ḛ',  f: 'ϝ',  g: 'ḡ',  h: 'ḥ',  i: 'ḭ',  j: 'ĵ',  : ḳ,  l: 'ḽ',  m: 'ṃ',  n: 'ṇ',  o: 'ṓ',  p: 'ṗ',  q: 'ʠ',  r: 'ṛ',  s: 'ṡ',  t: 'ṭ',  u: 'ṵ',  v: 'ṽ',  w: 'ẁ',  x: 'ẋ',  y: 'ẏ',  z: 'ẓ',  A: 'Ḁ',  B: 'Ḃ',  C: 'Ḉ',  D: 'Ḍ',  E: 'Ḛ',  F: 'Ḟ',  G: 'Ḡ',  H: 'Ḥ',  I: 'Ḭ',  : 'Ĵ',  K: 'Ḱ',  L: 'Ḻ',  M: 'Ṁ',  N: 'Ṅ',  O: 'Ṏ',  P: 'Ṕ',  Q: 'Ǫ',  R: 'Ṛ',  S: 'Ṣ',  T: 'Ṫ',  U: 'Ṳ',  V:   W: 'Ŵ',  X: 'Ẋ',  Y: 'Ŷ',  Z: 'Ż',}` | `object` | The letters in a string that will be replaced during pseudolocalization |
 | `enabled` | `true` | `boolean`| Should pseudolocalization be ran (useful for environment variables)|
+
+```javascript
+i18n
+  .use(new Pseudo({
+    enabled: true,
+    languageToPseudo: 'es-US',
+    letterMultiplier: 4,
+    repeatedLetters: ['B', 'o', 'a', 't']
+  }))
+  .use(reactI18nextModule)
+  .init({
+    ...
+    postProcess: ['pseudo'],
+    ...
+  });
+
+```
