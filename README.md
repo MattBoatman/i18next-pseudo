@@ -2,7 +2,7 @@
 [![npm package][npm-badge]][npm]
 
 [npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
+[npm]: https://www.npmjs.com/package/i18next-pseudo
 
 # i18n-pseudo
 
