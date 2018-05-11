@@ -1,13 +1,21 @@
 {
   "name": "i18next-pseudo",
   "version": "1.0.0",
-  "description": "Describe i18next-pseudo here",
+  "description": "Pseudolocalization plugin for i18next",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
     "es",
     "lib",
     "umd"
+  ],
+  "keywords": [
+    "i18next",
+    "react",
+    "react-18next",
+    "pseudo",
+    "pseudolocalization",
+    "i18next-pseudo"
   ],
   "scripts": {
     "build": "nwb build-web-module",
@@ -20,8 +28,11 @@
   "devDependencies": {
     "nwb": "0.21.x"
   },
-  "author": "",
-  "homepage": "",
+  "author": "Matt Boatman <matthewd.boatman@gmail.com> (http://matthewboatman.com/)",
+  "homepage": "https://github.com/MattBoatman",
   "license": "MIT",
-  "repository": ""
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MattBoatman/i18next-pseudo.git"
+  }
 }

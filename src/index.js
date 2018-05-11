@@ -1,18 +1,25 @@
 import { uglifiedAlphabet, vowels } from './utils';
 
 export default class Pseudo {
-  constructor(opts = {}) {
+  constructor({
+    languageToPseudo = 'en',
+    letterMultiplier = 2,
+    repeatedLetters = vowels,
+    uglifedLetterObject = uglifiedAlphabet,
+    enabled = true,
+  } = {}) {
     this.name = `pseudo`;
     this.type = `postProcessor`;
     this.bracketCount = 0;
-    this.languageToPseudo = opts.languageToPseudo || 'en';
-    this.letterMultiplier = opts.letterMultiplier || 2;
-    this.vowels = opts.repeatedLetterArray || vowels;
-    this.letters = opts.uglifedLetterObject || uglifiedAlphabet;
+    this.languageToPseudo = languageToPseudo;
+    this.letterMultiplier = letterMultiplier;
+    this.repeatedLetters = repeatedLetters;
+    this.letters = uglifedLetterObject;
+    this.enabled = enabled;
   }
 
   process(value, key, options, translator) {
-    if (this.languageToPseudo !== translator.language) {
+    if ((translator && this.languageToPseudo !== translator.language) || !this.enabled) {
       return value;
     }
 
@@ -29,7 +36,7 @@ export default class Pseudo {
         }
         if (this.bracketCount === 2) return letter;
 
-        return this.vowels.indexOf(letter) !== -1
+        return this.repeatedLetters.indexOf(letter) !== -1
           ? this.letters[letter].repeat(this.letterMultiplier)
           : this.letters[letter] || letter;
       })
