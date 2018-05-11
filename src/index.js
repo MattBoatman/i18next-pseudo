@@ -19,7 +19,7 @@ export default class Pseudo {
   }
 
   process(value, key, options, translator) {
-    if ((translator && this.languageToPseudo !== translator.language) || !this.enabled) {
+    if ((translator.language && this.languageToPseudo !== translator.language) || !this.enabled) {
       return value;
     }
 

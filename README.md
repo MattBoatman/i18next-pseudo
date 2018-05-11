@@ -4,7 +4,7 @@
 [npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
 [npm]: https://www.npmjs.com/package/i18next-pseudo
 
-# i18n-pseudo
+# i18next-pseudo
 
 i18next-pseudo is a plugin for [i18next](https://www.i18next.com/overview/plugins-and-utils) that returns translated strings in Pseudolocalization format.
 
