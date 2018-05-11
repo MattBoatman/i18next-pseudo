@@ -10,35 +10,40 @@ export default class Pseudo {
   } = {}) {
     this.name = `pseudo`;
     this.type = `postProcessor`;
-    this.bracketCount = 0;
-    this.languageToPseudo = languageToPseudo;
-    this.letterMultiplier = letterMultiplier;
-    this.repeatedLetters = repeatedLetters;
-    this.letters = uglifedLetterObject;
-    this.enabled = enabled;
+    this.options = {
+      languageToPseudo: languageToPseudo,
+      letterMultiplier: letterMultiplier,
+      repeatedLetters: repeatedLetters,
+      letters: uglifedLetterObject,
+      enabled: enabled,
+    }
+  }
+
+  configurePseudo(options) {
+    this.options = { ...this.options, ...options}
   }
 
   process(value, key, options, translator) {
-    if ((translator.language && this.languageToPseudo !== translator.language) || !this.enabled) {
+    if ((translator.language && this.options.languageToPseudo !== translator.language) || !this.options.enabled) {
       return value;
     }
-
+    let bracketCount = 0;
     return value
       .split('')
       .map(letter => {
         if (letter === '}') {
-          this.bracketCount = 0;
+          bracketCount = 0;
           return letter;
         }
         if (letter === '{') {
-          this.bracketCount++;
+          bracketCount++;
           return letter;
         }
-        if (this.bracketCount === 2) return letter;
+        if (bracketCount === 2) return letter;
 
-        return this.repeatedLetters.indexOf(letter) !== -1
-          ? this.letters[letter].repeat(this.letterMultiplier)
-          : this.letters[letter] || letter;
+        return this.options.repeatedLetters.indexOf(letter) !== -1
+          ? this.options.letters[letter].repeat(this.options.letterMultiplier)
+          : this.options.letters[letter] || letter;
       })
       .join('');
   }

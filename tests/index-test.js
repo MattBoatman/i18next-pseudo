@@ -11,11 +11,11 @@ describe('Pseudo class check', () => {
     const plugin = new Pseudo();
     expect(plugin.name).toEqual(`pseudo`);
     expect(plugin.type).toEqual(`postProcessor`);
-    expect(plugin.enabled).toBeTruthy();
-    expect(plugin.languageToPseudo).toEqual('en');
-    expect(plugin.letterMultiplier).toEqual(2);
-    expect(plugin.letters).toEqual(uglifiedAlphabet);
-    expect(plugin.repeatedLetters).toEqual(vowels);
+    expect(plugin.options.enabled).toBeTruthy();
+    expect(plugin.options.languageToPseudo).toEqual('en');
+    expect(plugin.options.letterMultiplier).toEqual(2);
+    expect(plugin.options.letters).toEqual(uglifiedAlphabet);
+    expect(plugin.options.repeatedLetters).toEqual(vowels);
   });
 });
 
