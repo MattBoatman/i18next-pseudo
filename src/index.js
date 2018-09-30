@@ -1,4 +1,4 @@
-import { uglifiedAlphabet, vowels } from './utils';
+import { uglifiedAlphabet, vowels, stringWrapper } from './utils';
 
 export default class Pseudo {
   constructor({
@@ -6,16 +6,18 @@ export default class Pseudo {
     letterMultiplier = 2,
     repeatedLetters = vowels,
     uglifedLetterObject = uglifiedAlphabet,
+    wrapped = false,
     enabled = true,
   } = {}) {
     this.name = `pseudo`;
     this.type = `postProcessor`;
     this.options = {
-      languageToPseudo: languageToPseudo,
-      letterMultiplier: letterMultiplier,
-      repeatedLetters: repeatedLetters,
+      languageToPseudo,
+      letterMultiplier,
+      wrapped,
+      repeatedLetters,
       letters: uglifedLetterObject,
-      enabled: enabled,
+      enabled,
     }
   }
 
@@ -28,7 +30,7 @@ export default class Pseudo {
       return value;
     }
     let bracketCount = 0;
-    return value
+    const processedValue = value
       .split('')
       .map(letter => {
         if (letter === '}') {
@@ -46,5 +48,6 @@ export default class Pseudo {
           : this.options.letters[letter] || letter;
       })
       .join('');
+    return stringWrapper({shouldWrap: this.options.wrapped, string: processedValue })
   }
 }
