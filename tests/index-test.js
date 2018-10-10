@@ -46,5 +46,9 @@ describe('process', () => {
     const plugin = new Pseudo({letterMultiplier: 4});
     expect(plugin.process('Boat', '', {}, translator)).toEqual('βṓṓṓṓααααţ');
   });
+  it('wraps pseudolocalization in to square brackets if wrapped prop passed as true', () => {
+    const plugin = new Pseudo({wrapped: true});
+    expect(plugin.process('Hello', '', {}, translator)).toEqual('[Ḥḛḛḽḽṓṓ]');
+  });
 
 });

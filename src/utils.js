@@ -54,3 +54,5 @@ export const uglifiedAlphabet = {
 };
 
 export const vowels = ['a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'];
+
+export const stringWrapper = ({shouldWrap, string}) => shouldWrap ? `[${string}]` : string;
