@@ -1,28 +1,27 @@
 declare module "i18next-pseudo" {
   import { PostProcessorModule } from "i18next";
 
-  export interface Options {
-    languageToPseudo: string;
-    letterMultiplier: number;
-    repeatedLetters: Array<string>;
-    letters: Record<string, string>;
-    wrapped: boolean;
-    enabled: boolean;
-  }
-
-  export interface InitOptions extends Partial<Omit<Options, "letters">> {
+  interface Options {
+    enabled?: boolean;
+    languageToPseudo?: string;
+    letterMultiplier?: number;
+    letters?: Record<string, string>;
+    repeatedLetters?: Array<string>;
     uglifedLetterObject?: Record<string, string>;
+    wrapped?: boolean;
   }
 
-  export interface Pseudo extends PostProcessorModule {
-    configurePseudo(options: Partial<Options>): void;
+  interface Pseudo extends PostProcessorModule {
+    configurePseudo(options: Options): void;
     options: Options;
     new (): any;
   }
 
   class Pseudo {
-    constructor(options: InitOptions);
+    constructor(options: Options);
 
     name: string;
   }
+
+  export = Pseudo;
 }
