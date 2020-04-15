@@ -4,6 +4,7 @@
   "description": "Pseudolocalization plugin for i18next",
   "main": "lib/index.js",
   "module": "es/index.js",
+  "types": "./index.d.ts",
   "files": [
     "es",
     "lib",
@@ -24,7 +25,9 @@
     "test:coverage": "nwb test --coverage",
     "test:watch": "nwb test --server"
   },
-  "dependencies": {},
+  "dependencies": {
+    "i18next": "^19.1.0"
+  },
   "devDependencies": {
     "nwb": "0.21.x"
   },
