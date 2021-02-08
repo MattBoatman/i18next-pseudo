@@ -1,5 +1,4 @@
-
-[![npm package][npm-badge]][npm]
+[![npm version](https://badge.fury.io/js/i18next-pseudo.svg)](https://badge.fury.io/js/i18next-pseudo)
 
 [npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
 [npm]: https://www.npmjs.com/package/i18next-pseudo
