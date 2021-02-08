@@ -8,7 +8,8 @@
   "files": [
     "es",
     "lib",
-    "umd"
+    "umd",
+    "index.d.ts"
   ],
   "keywords": [
     "i18next",
