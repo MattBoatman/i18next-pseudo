@@ -1,6 +1,6 @@
 {
   "name": "i18next-pseudo",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Pseudolocalization plugin for i18next",
   "main": "lib/index.js",
   "module": "es/index.js",
