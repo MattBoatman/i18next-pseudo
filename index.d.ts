@@ -8,6 +8,7 @@ declare module "i18next-pseudo" {
     letters?: Record<string, string>;
     repeatedLetters?: Array<string>;
     uglifedLetterObject?: Record<string, string>;
+    uglifyHTMLTags?: boolean;
     wrapped?: boolean;
   }
 

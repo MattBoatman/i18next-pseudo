@@ -8,6 +8,7 @@ export default class Pseudo {
     uglifedLetterObject = uglifiedAlphabet,
     wrapped = false,
     enabled = true,
+    uglifyHTMLTags = true
   } = {}) {
     this.name = `pseudo`;
     this.type = `postProcessor`;
@@ -18,6 +19,7 @@ export default class Pseudo {
       repeatedLetters,
       letters: uglifedLetterObject,
       enabled,
+      uglifyHTMLTags
     }
   }
 
@@ -29,19 +31,20 @@ export default class Pseudo {
     if ((translator.language && this.options.languageToPseudo !== translator.language) || !this.options.enabled) {
       return value;
     }
-    let bracketCount = 0;
+    let curlyBracketCount = 0;
+    let angleBracketCount = 0;
     const processedValue = value
       .split('')
       .map(letter => {
-        if (letter === '}') {
-          bracketCount = 0;
-          return letter;
+        switch (letter) {
+          case '}': curlyBracketCount--; return letter;
+          case '{': curlyBracketCount++; return letter;
+          case '>': angleBracketCount--; return letter;
+          case '<': angleBracketCount++; return letter;
         }
-        if (letter === '{') {
-          bracketCount++;
-          return letter;
-        }
-        if (bracketCount === 2) return letter;
+
+        if (curlyBracketCount === 2) return letter;
+        if (angleBracketCount > 0 && !this.options.uglifyHTMLTags) return letter;
 
         return this.options.repeatedLetters.indexOf(letter) !== -1
           ? this.options.letters[letter].repeat(this.options.letterMultiplier)
