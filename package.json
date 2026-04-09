@@ -30,7 +30,7 @@
     "i18next": "^19.1.0"
   },
   "devDependencies": {
-    "nwb": "0.21.x"
+    "nwb": "0.25.x"
   },
   "author": "Matt Boatman <matthewd.boatman@gmail.com> (http://matthewboatman.com/)",
   "homepage": "http://matthewboatman.com/",
